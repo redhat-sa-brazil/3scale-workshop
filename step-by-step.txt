@@ -1,0 +1,31 @@
+# Instalação
+
+- Criar projeto:
+  oc new-project 3scale
+
+- Criar secretRHN:
+  oc create secret docker-registry threescale-registry-auth --docker-server=registry.redhat.io --docker-username="rhn-support-vmartine" --docker-password=Martinez01!
+
+- Deploy Operator:
+  Operators > OperatorHub > Red Hat Integration - 3scale (selecionar namespace recém criado)
+
+- Verificando instalação:
+  Operators > Insalled Operators
+  oc api-resources | grep apimanagers
+
+# Deployment
+
+ oc create -f seed.yml; -- https://github.com/hodrigohamalho/dayinthelife-streaming/blob/master/support/lab5/system-seed.yaml
+ oc create -f pvc-storage.yml; -- https://github.com/hodrigohamalho/dayinthelife-streaming/edit/master/support/lab5/3scale-storage.yaml
+ oc create -f api-manager.yml; -- https://github.com/hodrigohamalho/dayinthelife-streaming/blob/master/support/lab5/install.sh#L73-L80
+
+- Operators > Installed Operators > API Manager > Create APIManager
+
+apiVersion: apps.3scale.net/v1alpha1
+kind: APIManager
+metadata:
+ name: instance-3scale
+ namespace: api-management
+spec:
+ wildcardDomain: apps.cluster-3899.3899.example.opentlc.com
+ resourceRequirementsEnabled: false

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: system-seed
+stringData:
+  MASTER_USER: admin
+  MASTER_PASSWORD: redhat
+  MASTER_ACCESS_TOKEN: redhat
+  MASTER_DOMAIN: master
+  ADMIN_USER: admin
+  ADMIN_PASSWORD: redhat
+  ADMIN_ACCESS_TOKEN: redhat
+  TENANT_NAME: 3scale
+type: Opaque
