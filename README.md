@@ -23,9 +23,10 @@ The [Additional References](#additional-references) section will provide complem
 
 * Create a **3Scale project/namespace**. Example: `oc create namespace 3scale`
 
-* Create a  *Kubernetes secret* to fetch images from **Red Hat´s Registry:**. Example: `oc -n 3scale create secret docker-registry threescale-registry-auth --docker-server=registry.redhat.io --docker-username="someuser" --docker-password=password`
+* Create a  *Kubernetes secret* to fetch images from **Red Hat´s Registry**. Example: `oc -n 3scale create secret docker-registry threescale-registry-auth --docker-server=registry.redhat.io --docker-username="someuser" --docker-password=password`
 
-* Deploy **3Scale Operator** onto **3Scale project/namespace**: `Operators > OperatorHub > Red Hat Integration - 3scale`
+* Deploy **3Scale Operator** onto **3Scale project/namespace**:
+  `Operators > OperatorHub > Red Hat Integration - 3scale`
 
   ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator.png)
 
