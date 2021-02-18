@@ -42,12 +42,12 @@ The [Additional References](#additional-references) section will provide complem
 
   ![3Scale Operator](images/deploy-openshift-setup/check-3scale-operator-namespace.png)
 
-  * Via *api-resources:*
+* Via *api-resources:*
 
-    ```
-    oc api-resources | grep apimanagers
-    apimanagers     apps.3scale.net     true      APIManager
-    ```
+  ```
+  oc api-resources | grep apimanagers
+  apimanagers     apps.3scale.net     true      APIManager
+  ```
 
 ### 1 - 3Scale Setup <a name="deploy-3scale">
 
@@ -107,7 +107,7 @@ The [Additional References](#additional-references) section will provide complem
       secret/system-seed created
       ```
 
-* In order to deploy **#3scale**, navigate to `Operators > Installed Operators > Red Hat Integration 3scale -> API Manager > Create APIManager` and deploy the *API Manager*
+* In order to deploy **3scale**, navigate to `Operators > Installed Operators > Red Hat Integration 3scale -> API Manager > Create APIManager` and deploy the *API Manager*
 
   ![API Manager Deploy](images/deploy-3scale/deploy-3scale.png)
 
@@ -126,7 +126,7 @@ The [Additional References](#additional-references) section will provide complem
    wildcardDomain: $domain
   ```
 
-  * don´t forget the *wildcardDomain* section with your **OpenShift Application domain**
+  * don´t forget to update the *wildcardDomain* section with your **OpenShift Application domain**
   * when using *RHPDS* it´s recommended to disable *Kubernetes Resource Limits* and *Kubernetes Resource Requests* using [resourceRequirementsEnabled: false](https://github.com/3scale/3scale-operator/blob/master/doc/operator-user-guide.md#resources) property:
 
     ```
