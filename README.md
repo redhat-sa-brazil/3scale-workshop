@@ -29,9 +29,9 @@ The [Additional References](#additional-references) section will provide complem
 
   ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator.png)
 
-  ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator-install.png
+  ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator-install.png)
 
-  ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator-install-operator.png
+  ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator-install-operator.png)
 
   * don´t forget to select **3Scale project/namespace**
 
