@@ -21,7 +21,7 @@ The [Additional References](#additional-references) section will provide complem
 
 ### 0 - Openshift Setup <a name="deploy-openshift-setup">
 
-* Create a **3Scale project/namespace**. Example: `oc create project 3Scale`
+* Create a **3Scale project/namespace**. Example: `oc create namespace 3scale`
 
 * Create a  *Kubernetes secret* to fetch images from **Red Hat´s Registry:**. Example: `oc -n 3scale create secret docker-registry threescale-registry-auth --docker-server=registry.redhat.io --docker-username="someuser" --docker-password=password`
 
@@ -29,16 +29,23 @@ The [Additional References](#additional-references) section will provide complem
 
   ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator.png)
 
+  ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator-install.png
+
+  ![3Scale Operator](images/deploy-openshift-setup/deploy-3scale-operator-install-operator.png
+
   * don´t forget to select **3Scale project/namespace**
 
 * Wait for the installation to finish. Before moving forward, we suggest double-checking the successfully deployment of **3Scale´s Operator**:
 
   ![3Scale Operator](images/deploy-openshift-setup/check-3scale-operator.png)
 
+  ![3Scale Operator](images/deploy-openshift-setup/check-3scale-operator-namespace.png)
+
   * Via *api-resources:*
 
     ```
     oc api-resources | grep apimanagers
+    apimanagers     apps.3scale.net     true      APIManager
     ```
 
 ### 1 - 3Scale Setup <a name="deploy-3scale">
@@ -112,3 +119,6 @@ The [Additional References](#additional-references) section will provide complem
   spec:
    wildcardDomain: $domain
   ```
+
+  * don´t forget the *wildcardDomain* section with your **OpenShift Application domain**
+  * when u
