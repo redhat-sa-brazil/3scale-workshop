@@ -16,6 +16,11 @@ The [Additional References](#additional-references) section will provide complem
 
 0. [Openshift Setup](#deploy-openshift-setup)
 1. [3Scale Setup](#deploy-3scale)
+2. [Hello World - Backend](#deploy-helloworld-backend)
+3. [Hello World - Product](#deploy-helloworld-product)
+4. [Hello World - Mapping Rules](#deploy-helloworld-mappingrules)
+5. [Hello World - Application Plans](#deploy-helloworld-applicationplans)
+6. [Hello World - Application](#deploy-helloworld-application)
 
 ## Deployment
 
@@ -116,22 +121,20 @@ The [Additional References](#additional-references) section will provide complem
 * If you prefer to use the command line, then create an *APIManager Object* as follows:
 
   ```
-  oc create -f kubernetes/api-manager.yml -n 3scale
-
   apiVersion: apps.3scale.net/v1alpha1
   kind: APIManager
   metadata:
    name: instance-3scale
   spec:
    wildcardDomain: $domain
+
+  oc create -f kubernetes/api-manager.yml -n 3scale
   ```
 
   * don´t forget to update the *wildcardDomain* section with your **OpenShift Application domain**
   * when using *RHPDS* it´s recommended to disable *Kubernetes Resource Limits* and *Kubernetes Resource Requests* using [resourceRequirementsEnabled: false](https://github.com/3scale/3scale-operator/blob/master/doc/operator-user-guide.md#resources) property:
 
     ```
-    oc create -f kubernetes/api-manager.yml -n 3scale
-
     apiVersion: apps.3scale.net/v1alpha1
     kind: APIManager
     metadata:
@@ -139,6 +142,8 @@ The [Additional References](#additional-references) section will provide complem
     spec:
      wildcardDomain: $domain
      resourceRequirementsEnabled: false
+
+    oc create -f kubernetes/api-manager.yml -n 3scale
     ```
 
 * Wait until all *pods* are successfully started. A similar output is expected:
@@ -201,5 +206,58 @@ The [Additional References](#additional-references) section will provide complem
   ![API Manager Deploy](images/deploy-3scale/home-3scale.png)
 
 * If something goes wrong please refer to [Troubleshooting common 3scale installation issues](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html-single/installing_3scale/index#troubleshooting-common-threescale-installation-issues)
+
+### 2 - Hello World API - Backend <a name="deploy-helloworld-backend">
+
+* On your **3Scale Home Page** create a *Backend* with the following configuration, and click on *Create Backend* afterwards:
+
+  ![Deploy HelloWorld Backend](images/deploy-helloworld-backend/create-backend-helloworld.png)
+
+  ```
+  Name: hello-world-backend
+  System name: hello-world-backend
+  Private Base URL: https://echo-api.3scale.net/
+  ```
+
+  ![Deploy HelloWorld Backend](images/deploy-helloworld-backend/deploy-backend-helloworld.png)
+
+* Switch back to **3Scale Home Page** selecting *Dashboard*
+
+  ![Deploy HelloWorld Backend](images/deploy-helloworld-backend/dashboard-backend-helloworld.png)
+
+* for additional information regarding **3Scale Backend** concept please refer to [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
+
+### 3 - Hello World API - Product <a name="deploy-helloworld-product">
+
+* On your **3Scale Home Page** create a *Product* with the following configuration, and click on *Create Product* afterwards:
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/create-product-helloworld.png)
+
+  ```
+  Name: hello-world-product
+  System name: hello-world-product
+  ```
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/deploy-product-helloworld.png)
+
+* On **hello-world-product** page, click on *Integration -> Configuration* and finally: *add a Backend and promote the configuration*:
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/integrate-product-backend.png)
+
+* Select **hello-world-backend** from *Backend* menu and on the *Path* textbox, inform `/`
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/addbackend-product.png)
+
+* Finally click on *Add to Product*
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/addbackend-validate-product.png)
+
+* In the left menu, select *Integration -> Configuration* and click on: `Promote v. 1 to Staging APIcast`
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/promote-product.png)
+
+  ![Deploy HelloWorld Product](images/deploy-helloworld-product/promote-product-concluded.png)
+
+* for additional information regarding **3Scale Product** concept please refer to [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#product)
 
 ## Additional References <a name="additional-references">
