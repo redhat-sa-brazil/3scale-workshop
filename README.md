@@ -258,7 +258,7 @@ The [Additional References](#additional-references) section will provide complem
 
 * Switch back to **3Scale Home Page** selecting *Dashboard*
 
-  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/dashboard-product-helloworld.png)
+  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/deploy-helloworld-mappingrules.png)
 
 * Edit **hello-world-backend** configuration: *Backends -> hello world backend*
 
