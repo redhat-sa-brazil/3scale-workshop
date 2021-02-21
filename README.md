@@ -308,6 +308,8 @@ The [Additional References](#additional-references) section will provide complem
 
   ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/publish-helloworld-applicationplan.png)
 
+  * wait until **hello-application-plan State** is: *published*
+
 ### 6. Hello World API - Application <a name="deploy-helloworld-application">
 
 ## Additional References <a name="additional-references">
