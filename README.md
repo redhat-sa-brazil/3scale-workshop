@@ -338,4 +338,6 @@ The [Additional References](#additional-references) section will provide complem
 
   ![Deploy HelloWorld Application](images/deploy-helloworld-application/finish-helloworld-application.png)
 
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/view-helloworld-application.png)
+
 ## Additional References <a name="additional-references">
