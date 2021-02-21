@@ -312,4 +312,30 @@ The [Additional References](#additional-references) section will provide complem
 
 ### 6. Hello World API - Application <a name="deploy-helloworld-application">
 
+* Switch to **Audience**
+
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/configure-helloworld-audience.png)
+
+* Click on *Developer*
+
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/configure-helloworld-developer.png)
+
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/view-helloworld-developer.png)
+
+* Click on *1 Application* top link and finally select *Create Application*
+
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/create-helloworld-application.png)
+
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/define-helloworld-application.png)
+
+* Define an application with the following configuration and click on *Create Application*
+
+  ```
+  Application Plan: hello-application-plan
+  Name: hello-world-app
+  Description: hello-world-app
+  ```
+
+  ![Deploy HelloWorld Application](images/deploy-helloworld-application/finish-helloworld-application.png)
+
 ## Additional References <a name="additional-references">
