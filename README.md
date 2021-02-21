@@ -225,7 +225,7 @@ The [Additional References](#additional-references) section will provide complem
 
   ![Deploy HelloWorld Backend](images/deploy-helloworld-backend/dashboard-backend-helloworld.png)
 
-* for additional information regarding **3Scale Backend** concept please refer to [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
+* For additional information regarding **3Scale Backend** concept please refer to [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
 
 ### 3 - Hello World API - Product <a name="deploy-helloworld-product">
 
@@ -252,12 +252,37 @@ The [Additional References](#additional-references) section will provide complem
 
   ![Deploy HelloWorld Product](images/deploy-helloworld-product/addbackend-validate-product.png)
 
-* In the left menu, select *Integration -> Configuration* and click on: `Promote v. 1 to Staging APIcast`
+* For additional information regarding **3Scale Product** concept please refer to [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#product)
 
-  ![Deploy HelloWorld Product](images/deploy-helloworld-product/promote-product.png)
+### 4 - Hello World API - Mapping Rules <a name="deploy-helloworld-mappingrules">
 
-  ![Deploy HelloWorld Product](images/deploy-helloworld-product/promote-product-concluded.png)
+* Switch back to **3Scale Home Page** selecting *Dashboard*
 
-* for additional information regarding **3Scale Product** concept please refer to [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#product)
+  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/dashboard-product-helloworld.png)
+
+* Edit **hello-world-backend** configuration: *Backends -> hello world backend*
+
+  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/select-backend-helloworld.png)
+
+* Click on *Mapping Rules* on the left side menu
+
+  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/mappingrules-helloworld.png)
+
+* Click on *Add Mapping Rule* and add a Rule with the following parameters, and afterwards click on *Create Mapping Rule*
+
+  ```
+  Verb: GET
+  Pattern: /hello
+  Metric or method to increment: Hits
+  Increment by: 1.
+  Last?: blank
+  Position: 1
+  ```
+
+  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/define-mappingrules-helloworld.png)
+
+### 5. Hello World API - Application Plans <a name="deploy-helloworld-applicationplans">
+
+### 6. Hello World API - Application <a name="deploy-helloworld-application">
 
 ## Additional References <a name="additional-references">
