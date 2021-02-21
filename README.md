@@ -283,6 +283,31 @@ The [Additional References](#additional-references) section will provide complem
 
 ### 5. Hello World API - Application Plans <a name="deploy-helloworld-applicationplans">
 
+* Switch back to **3Scale Home Page** selecting *Dashboard*
+
+  ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/dashboard-helloworld-applicationplan.png)
+
+* Switch to *Products* tab and click on *HELLO-WORLD-PRODUCT API*
+
+  ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/product-helloworld-applicationplan.png)
+
+* Click on: *Overview -> Applications -> Application Plan*
+
+  ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/integration-helloworld-applicationplan.png)
+
+* Click on *Create Application Plan* and define it using the following parameters:
+
+  ```
+  Name: hello-application-plan
+  System name: hello-application-plan
+  ```
+
+  ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/create-helloworld-applicationplan.png)
+
+* Finally set **hello-application-plan** as the *Default Plan* and click on *Publish*
+
+  ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/publish-helloworld-applicationplan.png)
+
 ### 6. Hello World API - Application <a name="deploy-helloworld-application">
 
 ## Additional References <a name="additional-references">
