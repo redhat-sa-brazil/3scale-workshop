@@ -21,6 +21,8 @@ The [Additional References](#additional-references) section will provide complem
 4. [Hello World - Mapping Rules](#deploy-helloworld-mappingrules)
 5. [Hello World - Application Plans](#deploy-helloworld-applicationplans)
 6. [Hello World - Application](#deploy-helloworld-application)
+7. [Hello World - Promote](#deploy-helloworld-promote)
+8. [Hello World - Test](#deploy-helloworld-test)
 
 ## Deployment
 
@@ -339,5 +341,19 @@ The [Additional References](#additional-references) section will provide complem
   ![Deploy HelloWorld Application](images/deploy-helloworld-application/finish-helloworld-application.png)
 
   ![Deploy HelloWorld Application](images/deploy-helloworld-application/view-helloworld-application.png)
+
+### 7. Hello World API - Promote <a name="deploy-helloworld-promote">
+
+* In the left menu, select: *Integration -> Configuration*
+
+  ![Deploy HelloWorld Promote](images/deploy-helloworld-promote/finish-helloworld-application.png)
+
+* Promote the **API** by clicking on *Promote v.1 to Staging APIcast*
+
+  ![Deploy HelloWorld Promote](images/deploy-helloworld-promote/staging-helloworld-application.png)
+
+* Promote the **API** by clicking on *Promote v.1 to Production APIcast*
+
+  ![Deploy HelloWorld Promote](images/deploy-helloworld-promote/production-helloworld-application.png)
 
 ## Additional References <a name="additional-references">
