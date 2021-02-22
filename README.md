@@ -23,6 +23,8 @@ The [Additional References](#additional-references) section will provide complem
 6. [Hello World - Application](#deploy-helloworld-application)
 7. [Hello World - Promote](#deploy-helloworld-promote)
 8. [Hello World - Test](#deploy-helloworld-test)
+9. [Security - Deploy RH-SSO](#deploy-rhsso)
+9. [Security - Configure RH-SSO](#deploy-rhsso)
 
 ## Deployment
 
@@ -283,6 +285,8 @@ The [Additional References](#additional-references) section will provide complem
 
   ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/define-mappingrules-helloworld.png)
 
+* For additional information regarding **3Scale Mapping Rules** concept please refer to [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#mapping-rule)
+
 ### 5. Hello World API - Application Plans <a name="deploy-helloworld-applicationplans">
 
 * Switch back to **3Scale Home Page** selecting *Dashboard*
@@ -311,6 +315,8 @@ The [Additional References](#additional-references) section will provide complem
   ![Deploy HelloWorld Application Plan](images/deploy-helloworld-applicationplans/publish-helloworld-applicationplan.png)
 
   * wait until **hello-application-plan State** is: *published*
+
+* For additional information regarding **3Scale Application Plan** concept please refer to [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#plan)
 
 ### 6. Hello World API - Application <a name="deploy-helloworld-application">
 
@@ -341,6 +347,8 @@ The [Additional References](#additional-references) section will provide complem
   ![Deploy HelloWorld Application](images/deploy-helloworld-application/finish-helloworld-application.png)
 
   ![Deploy HelloWorld Application](images/deploy-helloworld-application/view-helloworld-application.png)
+
+* For additional information regarding **3Scale Application** concept please refer to [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#application)
 
 ### 7. Hello World API - Promote <a name="deploy-helloworld-promote">
 
