@@ -11,6 +11,7 @@ The [Additional References](#additional-references) section will provide complem
 - [Red Hat Openshift Container Platform 4.6](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
 - [Red Hat 3Scale API Management 2.9](https://www.redhat.com/en/technologies/jboss-middleware/3scale)
 - [Openshift Service Mesh 2.0.2](https://www.openshift.com/learn/topics/service-mesh)
+- [Red Hat Single Sign On 7.4](https://access.redhat.com/products/red-hat-single-sign-on)
 
 ## Agenda
 
@@ -24,7 +25,7 @@ The [Additional References](#additional-references) section will provide complem
 7. [Hello World - Promote](#deploy-helloworld-promote)
 8. [Hello World - Test](#deploy-helloworld-test)
 9. [Security - Deploy RH-SSO](#deploy-rhsso)
-9. [Security - Configure RH-SSO](#deploy-rhsso)
+10. [Security - Configure RH-SSO](#deploy-rhsso)
 
 ## Deployment
 
@@ -426,5 +427,97 @@ The [Additional References](#additional-references) section will provide complem
   ```
 
   ![Deploy HelloWorld Test](images/deploy-helloworld-test/prod-helloworld-test.png)
+
+### 9. Security - Deploy RH-SSO <a name="deploy-rhsso">
+
+* Before moving forward, make sure your environment mets the following prerequisites: [Red Hat Single Sign On Requirements](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.4/html-single/red_hat_single_sign-on_for_openshift_on_openjdk/index#initial_setup)
+
+* Double check if you have **RH-SSO Templates** installed:
+
+  ```
+  oc get templates -n openshift | grep sso
+  eap73-sso-s2i                                       An example JBoss Enterprise Application Platform application Single Sign-On a...   49 (20 blank)     10
+  sso72-https                                         An example RH-SSO 7 application. For more information about using this templa...   26 (15 blank)     6
+  sso72-mysql                                         An example RH-SSO 7 application with a MySQL database. For more information a...   36 (20 blank)     8
+  sso72-mysql-persistent                              An example RH-SSO 7 application with a MySQL database. For more information a...   37 (20 blank)     9
+  sso72-postgresql                                    An example RH-SSO 7 application with a PostgreSQL database. For more informat...   33 (17 blank)     8
+  sso72-postgresql-persistent                         An example RH-SSO 7 application with a PostgreSQL database. For more informat...   34 (17 blank)     9
+  sso73-https                                         An example application based on RH-SSO 7.3 image. For more information about...    27 (16 blank)     6
+  sso73-mysql                                         An example application based on RH-SSO 7.3 image. For more information about...    37 (21 blank)     8
+  sso73-mysql-persistent                              An example application based on RH-SSO 7.3 image. For more information about...    38 (21 blank)     9
+  sso73-ocp4-x509-https                               An example application based on RH-SSO 7.3 image. For more information about...    13 (7 blank)      5
+  sso73-ocp4-x509-mysql-persistent                    An example application based on RH-SSO 7.3 image. For more information about...    24 (12 blank)     8
+  sso73-ocp4-x509-postgresql-persistent               An example application based on RH-SSO 7.3 image. For more information about...    21 (9 blank)      8
+  sso73-postgresql                                    An example application based on RH-SSO 7.3 image. For more information about...    34 (18 blank)     8
+  sso73-postgresql-persistent                         An example application based on RH-SSO 7.3 image. For more information about...    35 (18 blank)     9
+  sso74-https                                         An example application based on RH-SSO 7.4 on OpenJDK image. For more informa...   27 (16 blank)     6
+  sso74-ocp4-x509-https                               An example application based on RH-SSO 7.4 on OpenJDK image. For more informa...   13 (7 blank)      5
+  sso74-ocp4-x509-postgresql-persistent               An example application based on RH-SSO 7.4 on OpenJDK image. For more informa...   21 (9 blank)      8
+  sso74-postgresql                                    An example application based on RH-SSO 7.4 on OpenJDK image. For more informa...   34 (18 blank)     8
+  sso74-postgresql-persistent                         An example application based on RH-SSO 7.4 on OpenJDK image. For more informa...   35 (18 blank)     9
+  ```
+    * your output may differ from the above, but please, notice that you must have at least one template available in order to deploy **RH-SSO**
+
+* Deploy **RH-SSO**:
+
+  ```
+  oc -n 3scale new-app --template=sso74-ocp4-x509-https \
+    -p SSO_ADMIN_USERNAME=admin \
+    -p SSO_ADMIN_PASSWORD=redhat
+
+    --> Deploying template "openshift/sso74-ocp4-x509-https" to project 3scale
+
+     Red Hat Single Sign-On 7.4 on OpenJDK (Ephemeral)
+     ---------
+     An example application based on RH-SSO 7.4 on OpenJDK image. For more information about using this template, see https://github.com/jboss-container-images/redhat-sso-7-openshift-image/tree/sso74-dev/docs.
+
+     A new RH-SSO service has been created in your project. The admin username/password for accessing the master realm via the RH-SSO console is admin/redhat. The HTTPS keystore used for serving secure content, the JGroups keystore used for securing JGroups communications, and server truststore used for securing RH-SSO requests were automatically created via OpenShift's service serving x509 certificate secrets.
+
+     * With parameters:
+        * Application Name=sso
+        * Custom RH-SSO Server Hostname=
+        * JGroups Cluster Password=3BWrKCC76P5SmpbmS1Q3nlydjiIsyCQD # generated
+        * Datasource Minimum Pool Size=
+        * Datasource Maximum Pool Size=
+        * Datasource Transaction Isolation=
+        * ImageStream Namespace=openshift
+        * RH-SSO Administrator Username=admin
+        * RH-SSO Administrator Password=redhat
+        * RH-SSO Realm=
+        * RH-SSO Service Username=
+        * RH-SSO Service Password=
+        * Container Memory Limit=1Gi
+
+  --> Creating resources ...
+    configmap "sso-service-ca" created
+    service "sso" created
+    service "sso-ping" created
+    route.route.openshift.io "sso" created
+    deploymentconfig.apps.openshift.io "sso" created
+  --> Success
+    Access your application via route 'sso-3scale.apps.cluster-51e3.51e3.example.opentlc.com'
+    Run 'oc status' to view your app.
+  ```
+
+* Double check if **RH-SSO pods** are running:
+
+  ```
+  oc get pods | grep -i sso
+  sso-1-8bfc9                        1/1     Running     0          105s
+  sso-1-deploy                       0/1     Completed   0          108s
+  ```
+
+* Obtain **Red Hat SSO Route** by executing:
+
+  ```
+  oc get routes -n 3scale | grep sso | awk '{ print $2 }'
+  sso-3scale.apps.cluster-51e3.51e3.example.opentlc.com
+  ```
+
+* Try to access **Red Hat SSO Console** by click on *Administration Console* and informing the following credentials: `admin / redhat`
+
+  ![Deploy RH SSO](images/deploy-rhsso/access-rhsso.png)
+  ![Deploy RH SSO](images/deploy-rhsso/welcome-rhsso.png)
+
 
 ## Additional References <a name="additional-references">
