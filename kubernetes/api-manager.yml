@@ -3,5 +3,5 @@ kind: APIManager
 metadata:
  name: instance-3scale
 spec:
- wildcardDomain: apps.cluster-51e3.51e3.example.opentlc.com
+ wildcardDomain: apps.cluster-8cb5.8cb5.example.opentlc.com
  resourceRequirementsEnabled: false

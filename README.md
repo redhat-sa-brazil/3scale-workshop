@@ -25,7 +25,8 @@ The [Additional References](#additional-references) section will provide complem
 7. [Hello World - Promote](#deploy-helloworld-promote)
 8. [Hello World - Test](#deploy-helloworld-test)
 9. [Security - Deploy RH-SSO](#deploy-rhsso)
-10. [Security - Configure RH-SSO](#deploy-rhsso)
+10. [Security - Configure RH-SSO - Admin Console](#deploy-configure-adminconsole-rhsso)
+11. [Security - Configure RH-SSO - APIs](#deploy-configure-apis-rhsso)
 
 ## Deployment
 
@@ -33,7 +34,15 @@ The [Additional References](#additional-references) section will provide complem
 
 * Create a **3Scale project/namespace**. Example: `oc create namespace 3scale`
 
-* Create a  *Kubernetes secret* to fetch images from **Red Hat´s Registry**. Example: `oc -n 3scale create secret docker-registry threescale-registry-auth --docker-server=registry.redhat.io --docker-username="someuser" --docker-password=password`
+* Create a  *Kubernetes secret* to fetch images from **Red Hat´s Registry**. Example:
+
+  ```
+  oc -n 3scale create secret \
+    docker-registry threescale-registry-auth \
+    --docker-server=registry.redhat.io \
+    --docker-username="someuser" \
+    --docker-password="password"
+  ```
 
 * Deploy **3Scale Operator** onto **3Scale project/namespace**:
   `Operators > OperatorHub > Red Hat Integration - 3scale`
@@ -519,5 +528,90 @@ The [Additional References](#additional-references) section will provide complem
   ![Deploy RH SSO](images/deploy-rhsso/access-rhsso.png)
   ![Deploy RH SSO](images/deploy-rhsso/welcome-rhsso.png)
 
+### 10. Security - Configure RH-SSO - Admin Console <a name="deploy-configure-adminconsole-rhsso">
+
+* First of all we need to create a Realm. In order to do this, please place your mouse hover (top left) the *Master* label, and click on **Add Realm**
+
+  ![Configure RH SSO](images/deploy-rhsso/create-realm-rhsso.png)
+
+* Inform a name of your choice and click on *Create*. Example: `3scale-admin`
+
+  ![Configure RH SSO](images/deploy-rhsso/configure-realm-rhsso.png)
+
+    * make sure the *Enabled* option is **ON**
+
+* Now we need to create a client. Click on *Clients* (top left menu below *Realm Settings*) and **Create** button:
+
+  ![Configure RH SSO](images/deploy-rhsso/create-client-rhsso.png)
+  ![Configure RH SSO](images/deploy-rhsso/create-btn-client-rhsso.png)
+
+* Now create a client with the following parameters:
+
+  ```
+  Client ID: 3scale-client
+  Client Protocol: openid-connect
+  Root URL: <the output from: oc get routes -n 3scale | grep 3scale-admin | awk '{ print $2 }'>
+
+  oc get routes -n 3scale | grep sso | awk '{ print $2}'
+  sso-3scale.apps.cluster-8cb5.8cb5.example.opentlc.com
+  ```
+
+  ![Configure RH SSO](images/deploy-rhsso/create-client-params-rhsso.png)
+
+* Make sure your client configuration has the following settings and click on *Save* button:
+
+  ```
+  Enabled: ON
+  Consent Required: OFF
+  Client Protocol: openid-connect
+  Access Type: confidential
+  Standard Flow Enabled: ON
+  Implicit Flow Enabled: False
+  Direct Access Grants Enabled: OFF
+  Service Accounts Enabled: OFF
+  Authorization Enabled: OFF
+  ```
+
+  ![Configure RH SSO](images/deploy-rhsso/create-client-params-custom-rhsso.png)
+
+* Now we need to take note of our credentials. In order to do this, please click on *Credentials* copy this secret for further use.
+
+  ![Configure RH SSO](images/deploy-rhsso/create-client-secret-rhsso.png)
+
+* Switch to *Mappers* tab and click on *Add Builtin*. Finally select **email_verified** and click on *Add Selected*
+
+  ![Configure RH SSO](images/deploy-rhsso/create-builtin-rhsso.png)
+  ![Configure RH SSO](images/deploy-rhsso/include-builtin-rhsso.png)
+
+* Click on *Users* (left side menu) and *Add User*
+
+  ![Configure RH SSO](images/deploy-rhsso/create-user-rhsso.png)
+
+* Please inform all required data and click on *Save* button
+
+  ![Configure RH SSO](images/deploy-rhsso/create-user-rhsso.png)
+
+  * fell free to configure a password by clicking on *Credentials* and set a password for this user
+  * don´t forget to set **Email Verified: TRUE**
+
+* Switch Back to **3Scale** and click on *Gear icon* (top right menu)
+
+  ![Configure RH SSO](images/deploy-rhsso/settings-3scale-rhsso.png)
+
+* Click on *Users -> SSO Integrations* (left side menu) and *New SSO Integration*
+
+  ![Configure RH SSO](images/deploy-rhsso/create-integration-3scale-rhsso.png)
+
+* Now you need to inform the client name, secret and realm created on **RH-SSO**. Example:
+
+  ```
+  Client: 3scale-client
+  Client Secret: 69fff29d-2632-43cf-8fe7-29c5b540093d
+  Realm or site: <RH-SSO URL>/auth/realms/3scale-admin
+  ```
+
+  ![Configure RH SSO](images/deploy-rhsso/deploy-integration-3scale-rhsso.png)
+
+* In order to test this integration, click on *Test authentication flow now* and try to login with your **RH-SSO user**
 
 ## Additional References <a name="additional-references">
