@@ -532,18 +532,18 @@ The [Additional References](#additional-references) section will provide complem
 
 * First of all we need to create a Realm. In order to do this, please place your mouse hover (top left) the *Master* label, and click on **Add Realm**
 
-  ![Configure RH SSO](images/deploy-rhsso/create-realm-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-realm-rhsso.png)
 
 * Inform a name of your choice and click on *Create*. Example: `3scale-admin`
 
-  ![Configure RH SSO](images/deploy-rhsso/configure-realm-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/configure-realm-rhsso.png)
 
     * make sure the *Enabled* option is **ON**
 
 * Now we need to create a client. Click on *Clients* (top left menu below *Realm Settings*) and **Create** button:
 
-  ![Configure RH SSO](images/deploy-rhsso/create-client-rhsso.png)
-  ![Configure RH SSO](images/deploy-rhsso/create-btn-client-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-client-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-btn-client-rhsso.png)
 
 * Now create a client with the following parameters:
 
@@ -556,7 +556,7 @@ The [Additional References](#additional-references) section will provide complem
   sso-3scale.apps.cluster-8cb5.8cb5.example.opentlc.com
   ```
 
-  ![Configure RH SSO](images/deploy-rhsso/create-client-params-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-client-params-rhsso.png)
 
 * Make sure your client configuration has the following settings and click on *Save* button:
 
@@ -572,35 +572,35 @@ The [Additional References](#additional-references) section will provide complem
   Authorization Enabled: OFF
   ```
 
-  ![Configure RH SSO](images/deploy-rhsso/create-client-params-custom-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-client-params-custom-rhsso.png)
 
 * Now we need to take note of our credentials. In order to do this, please click on *Credentials* copy this secret for further use.
 
-  ![Configure RH SSO](images/deploy-rhsso/create-client-secret-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-client-secret-rhsso.png)
 
 * Switch to *Mappers* tab and click on *Add Builtin*. Finally select **email_verified** and click on *Add Selected*
 
-  ![Configure RH SSO](images/deploy-rhsso/create-builtin-rhsso.png)
-  ![Configure RH SSO](images/deploy-rhsso/include-builtin-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-builtin-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/include-builtin-rhsso.png)
 
 * Click on *Users* (left side menu) and *Add User*
 
-  ![Configure RH SSO](images/deploy-rhsso/create-user-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-user-rhsso.png)
 
 * Please inform all required data and click on *Save* button
 
-  ![Configure RH SSO](images/deploy-rhsso/create-user-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-user-rhsso.png)
 
   * fell free to configure a password by clicking on *Credentials* and set a password for this user
   * don´t forget to set **Email Verified: TRUE**
 
 * Switch Back to **3Scale** and click on *Gear icon* (top right menu)
 
-  ![Configure RH SSO](images/deploy-rhsso/settings-3scale-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/settings-3scale-rhsso.png)
 
 * Click on *Users -> SSO Integrations* (left side menu) and *New SSO Integration*
 
-  ![Configure RH SSO](images/deploy-rhsso/create-integration-3scale-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/create-integration-3scale-rhsso.png)
 
 * Now you need to inform the client name, secret and realm created on **RH-SSO**. Example:
 
@@ -610,7 +610,7 @@ The [Additional References](#additional-references) section will provide complem
   Realm or site: <RH-SSO URL>/auth/realms/3scale-admin
   ```
 
-  ![Configure RH SSO](images/deploy-rhsso/deploy-integration-3scale-rhsso.png)
+  ![Configure RH SSO](images/deploy-configure-rhsso/deploy-integration-3scale-rhsso.png)
 
 * In order to test this integration, click on *Test authentication flow now* and try to login with your **RH-SSO user**
 
