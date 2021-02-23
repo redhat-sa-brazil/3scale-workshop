@@ -642,16 +642,54 @@ The [Additional References](#additional-references) section will provide complem
 
 * Finally go to the **Credentials** tab and take note of the *Client´s secret*
 
-  ```
-  export access_token=$(\
-    curl -X POST https://sso-3scale.apps.cluster-8cb5.8cb5.example.opentlc.com/auth/realms/3scale-api/protocol/openid-connect/token \
-    --user 2566441d:a5d3e108a3a7b6d42d55a72d473853df \
-    -H 'content-type: application/x-www-form-urlencoded' \
-    -d 'username=3scale-api&password=redhat&grant_type=password' | jq --raw-output '.access_token' \
-  )
+* Switch back to **3Scale Dashboard** and click on *HELLO-WORLD-PRODUCT API -> Overview*
 
-  curl -H "Authorization: Bearer $access_token"  \
-    https://hello-world-product-3scale-apicast-staging.apps.cluster-8cb5.8cb5.example.opentlc.com:443/hello
+  ![Configure RH SSO APIs](images/deploy-configure-apis-rhsso/config-3scale-overview-rhsso.png)
+
+* Click on *Integration -> Settings* and on the **Authentication** section, select: `OpenID Connect Use OpenID Connect for any OAuth 2.0 flow.`
+
+  ![Configure RH SSO APIs](images/deploy-configure-apis-rhsso/config-3scale-authentication-rhsso.png)
+
+* On the **OPENID CONNECT (OIDC) BASICS** change the *OpenID Connect Issuer*: `https://<CLIENT_ID>:<CLIENT_SECRET>@<HOST>:<PORT>/auth/realms/<REALM_NAME>`
+
+* On the **OIDC AUTHORIZATION FLOW** enable the following flows:
+
+  ```
+  Authorization Code Flow
+  Service Accounts Flow
+  Direct Access Grant Flow
+  ```
+
+* Finally on the **CREDENTIALS LOCATIONS** select **HTTP HEADERS** and click on *Update Product*
+
+* Go back to the command line and execute the following:
+
+  ```
+  oc -n 3scale get pods | grep zync | grep que
+  zync-que-1-deploy                  0/1     Completed   0          7h2m
+  zync-que-1-p4w7f                   1/1     Running     2          7h2m
+  ```
+    * take note of this pod: `zync-que-1-p4w7f`
+    * your pod name may differ from the above one;
+
+  ```
+  oc oc -n 3scale cat exec zync-que-1-p4w7f cat /etc/pki/tls/cert.pem > zync.pem
+  ```
+    * double check if this file was generated properly
+
+  ```
+  oc -n 3scale create configmap zync-ca-bundle --from-file=./zync.pem
+  configmap/zync-ca-bundle created
+
+  oc -n 3scale set volume dc/zync --add --name=zync-ca-bundle --mount-path /etc/pki/tls/zync/zync.pem --sub-path zync.pem --source='{"configMap":{"name":"zync-ca-bundle","items":[{"key":"zync.pem","path":"zync.pem"}]}}'
+  deploymentconfig.apps.openshift.io/zync volume updated
+
+  oc -n 3scale patch dc/zync --type=json -p '[{"op": "add", "path": "/spec/template/spec/containers/0/volumeMounts/0/subPath", "value":"zync.pem"}]'
+
+  oc set env dc/zync SSL_CERT_FILE=/etc/pki/tls/zync/zync.pem
+  deploymentconfig.apps.openshift.io/zync updated
+
+  oc rollout latest dc/zync
   ```
 
 ## Additional References <a name="additional-references">
