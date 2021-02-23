@@ -614,4 +614,44 @@ The [Additional References](#additional-references) section will provide complem
 
 * In order to test this integration, click on *Test authentication flow now* and try to login with your **RH-SSO user**
 
+### 11. Security - Configure RH-SSO - APIs <a name="deploy-configure-apis-rhsso">
+
+* Go back to **RH-SSO** and let´s create a new *Realm* for the APIS: `3scale-api`
+
+  ![Configure RH SSO APIs](images/deploy-configure-apis-rhsso/create-realm-apis-rhsso.png)
+
+* Now create a client with **No Root Url**
+
+  ![Configure RH SSO APIs](images/deploy-configure-apis-rhsso/create-client-apis-rhsso.png)
+
+* Make sure your client has the following configuration and click on *Save*:
+
+  ```
+  Access Type: confidential
+  Implicit Flow Enabled: OFF
+  Standard Flow Enabled: OFF
+  Direct Access Grants Enabled: OFF
+  Service Accounts Enabled: ON
+  ```
+
+  ![Configure RH SSO APIs](images/deploy-configure-apis-rhsso/config-client-apis-rhsso.png)
+
+* Navigate to *Service Account Role* and enable **manage-clients** role, moving it to the **Assigned Roles** section.
+
+  ![Configure RH SSO APIs](images/deploy-configure-apis-rhsso/config-client-roles-apis-rhsso.png)
+
+* Finally go to the **Credentials** tab and take note of the *Client´s secret*
+
+  ```
+  export access_token=$(\
+    curl -X POST https://sso-3scale.apps.cluster-8cb5.8cb5.example.opentlc.com/auth/realms/3scale-api/protocol/openid-connect/token \
+    --user 2566441d:a5d3e108a3a7b6d42d55a72d473853df \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -d 'username=3scale-api&password=redhat&grant_type=password' | jq --raw-output '.access_token' \
+  )
+
+  curl -H "Authorization: Bearer $access_token"  \
+    https://hello-world-product-3scale-apicast-staging.apps.cluster-8cb5.8cb5.example.opentlc.com:443/hello
+  ```
+
 ## Additional References <a name="additional-references">
