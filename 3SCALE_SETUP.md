@@ -64,9 +64,9 @@ This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
 
 * In order to deploy **3scale**, navigate to `Operators > Installed Operators > Red Hat Integration 3scale -> API Manager > Create APIManager` and deploy the *API Manager*
 
-  ![API Manager Deploy](images/deploy-3scale/deploy-3scale.png)
+  ![API Manager Deploy](images/3scale_setup/3scale_setup.png)
 
-  ![API Manager Deploy](images/deploy-3scale/deploy-3scale-apimanager.png)
+  ![API Manager Deploy](images/3scale_setup/deploy-3scale-apimanager.png)
 
 * If you prefer to use the command line, then create an *APIManager Object* as follows:
 
@@ -151,9 +151,9 @@ This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
 
 * Try to access **3Scale Admin Portal (e.g https://3scale-admin.apps.cluster-620c.620c.example.opentlc.com/)** with the following credentials: `admin / redhat`
 
-  ![API Manager Deploy](images/deploy-3scale/login-3scale.png)
+  ![API Manager Deploy](images/3scale_setup/login-3scale.png)
 
-  ![API Manager Deploy](images/deploy-3scale/home-3scale.png)
+  ![API Manager Deploy](images/3scale_setup/home-3scale.png)
 
 * If something goes wrong please refer to [Troubleshooting common 3scale installation issues](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html-single/installing_3scale/index#troubleshooting-common-threescale-installation-issues)
 
