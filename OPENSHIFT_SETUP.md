@@ -2,7 +2,7 @@
 
 ## Description
 
-This module will cover how to install **3Scale 2.9** on **Red Hat OpenShift 4.6**.
+This module will cover how prepare **Red Hat OpenShift 4.6** to install **3Scale 2.9**.
 
 ## Deployment
 
@@ -21,19 +21,19 @@ This module will cover how to install **3Scale 2.9** on **Red Hat OpenShift 4.6*
 * Deploy **3Scale Operator** onto **3Scale project/namespace**:
   `Operators > OperatorHub > Red Hat Integration - 3scale`
 
-  ![3Scale Operator](images/3scale_setup/deploy-3scale-operator.png)
+  ![3Scale Operator](images/openshift_setup/deploy-3scale-operator.png)
 
-  ![3Scale Operator](images/3scale_setup/deploy-3scale-operator-install.png)
+  ![3Scale Operator](images/openshift_setup/deploy-3scale-operator-install.png)
 
-  ![3Scale Operator](images/3scale_setup/deploy-3scale-operator-install-operator.png)
+  ![3Scale Operator](images/openshift_setup/deploy-3scale-operator-install-operator.png)
 
   * don´t forget to select **3Scale project/namespace**
 
 * Wait for the installation to finish. Before moving forward, we suggest double-checking the successfully deployment of **3Scale´s Operator**:
 
-  ![3Scale Operator](images/3scale_setup/check-3scale-operator.png)
+  ![3Scale Operator](images/openshift_setup/check-3scale-operator.png)
 
-  ![3Scale Operator](images/3scale_setup/check-3scale-operator-namespace.png)
+  ![3Scale Operator](images/openshift_setup/check-3scale-operator-namespace.png)
 
 * Via *api-resources:*
 
