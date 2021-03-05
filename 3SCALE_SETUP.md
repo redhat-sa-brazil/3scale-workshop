@@ -64,7 +64,7 @@ This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
 
 * In order to deploy **3scale**, navigate to `Operators > Installed Operators > Red Hat Integration 3scale -> API Manager > Create APIManager` and deploy the *API Manager*
 
-  ![API Manager Deploy](images/3scale_setup/3scale_setup.png)
+  ![API Manager Deploy](images/3scale_setup/deploy-3scale.png)
 
   ![API Manager Deploy](images/3scale_setup/deploy-3scale-apimanager.png)
 
