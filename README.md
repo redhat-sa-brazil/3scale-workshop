@@ -8,12 +8,23 @@ The [Additional References](#additional-references) section will provide complem
 
 ## Environment
 
-- [Red Hat Openshift Container Platform 4.6](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
+- [Red Hat OpenShift Container Platform 4.6](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
 - [Red Hat 3Scale API Management 2.9](https://www.redhat.com/en/technologies/jboss-middleware/3scale)
 - [Openshift Service Mesh 2.0.2](https://www.openshift.com/learn/topics/service-mesh)
 - [Red Hat Single Sign On 7.4](https://access.redhat.com/products/red-hat-single-sign-on)
 
 ## Agenda
+
+In order to facilitate the workshop execution, we´ve separeted it on the following modules:
+
+0. [OpenShift Setup](OPENSHIFT_SETUP.md)
+1. [3Scale Setup](3SCALE_SETUP.md)
+2. [3Scale First Steps](3SCALE_FIRST_STEPS.md)
+3. [3Scale Policies](3SCALE_POLICIES.md)
+4. [3Scale Developer Portal](3SCALE_DEV_PORTAL.md)
+5. [3Scale Security](3SCALE_SECURITY.md)
+6. [3Scale Service Mesh](3SCALE_SERVICE_MESH.md)
+7. [3Scale Management](3SCALE_MANAGEMENT.md)
 
 0. [Openshift Setup](#deploy-openshift-setup)
 1. [3Scale Setup](#deploy-3scale)
