@@ -64,6 +64,9 @@ This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
 
 * In order to deploy **3scale**, navigate to `Operators > Installed Operators > Red Hat Integration 3scale -> API Manager > Create APIManager` and deploy the *API Manager*
 
+  * feel free to customize/add the *API Manager Name* and *Labels* for your convenience;
+  * don´t forget to update the *wildcardDomain* section with your **OpenShift Application domain**. Example: `apps.openshift.mycompany.com`
+
   ![API Manager Deploy](images/3scale_setup/deploy-3scale.png)
 
   ![API Manager Deploy](images/3scale_setup/deploy-3scale-apimanager.png)
@@ -81,7 +84,6 @@ This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
   oc create -f kubernetes/api-manager.yml -n 3scale
   ```
 
-  * don´t forget to update the *wildcardDomain* section with your **OpenShift Application domain**. Example: `apps.openshift.mycompany.com`
   * when using *RHPDS* it´s recommended to disable *Kubernetes Resource Limits* and *Kubernetes Resource Requests* using [resourceRequirementsEnabled: false](https://github.com/3scale/3scale-operator/blob/master/doc/operator-user-guide.md#resources) property:
 
     ```
