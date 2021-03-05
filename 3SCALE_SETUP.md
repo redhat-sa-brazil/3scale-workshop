@@ -84,7 +84,7 @@ This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
   oc create -f kubernetes/api-manager.yml -n 3scale
   ```
 
-  * when using *RHPDS* it´s recommended to disable *Kubernetes Resource Limits* and *Kubernetes Resource Requests* using [resourceRequirementsEnabled: false](https://github.com/3scale/3scale-operator/blob/master/doc/operator-user-guide.md#resources) property:
+  * when using *RHPDS* it's recommended to disable *Kubernetes Resource Limits* and *Kubernetes Resource Requests* using [resourceRequirementsEnabled: false](https://github.com/3scale/3scale-operator/blob/master/doc/operator-user-guide.md#resources) property:
 
     ```
     apiVersion: apps.3scale.net/v1alpha1
