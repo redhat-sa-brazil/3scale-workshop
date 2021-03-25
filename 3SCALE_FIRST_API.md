@@ -172,12 +172,12 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 * In order to test the **Staging APICast**, just execute a curl on the generated URL:
 
   ```
-  curl "https://hello-world-produc-3scale-apicast-staging.apps.cluster-51e3.51e3.example.opentlc.com:443/?user_key=<yourkey>"
+  curl "$url:443/?user_key=<yourkey>"
 
   {
   "method": "GET",
   "path": "/",
-  "args": "user_key=3103a2e304a1fa4541c8efc34ab0d93d",
+  "args": "user_key=$key",
   "body": "",
   "headers": {
     "HTTP_VERSION": "HTTP/1.1",
@@ -201,7 +201,7 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 * In order to test the **Production APICast**, just execute a curl on the generated URL:
 
   ```
-  curl https://hello-world-produc-3scale-apicast-production.apps.cluster-51e3.51e3.example.opentlc.com:443/\?user_key\=$user_key
+  curl $url:443?user_key=$user_key
   {
     "method": "GET",
     "path": "/",
