@@ -8,7 +8,7 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
 ### API Backend
 
-* On your **3Scale Home Page** create a *Backend* with the following configuration, and click on *Create Backend* afterwards:
+* On your **3Scale Home Page** create a *Backend* with the following configuration by clicking on *New Backend* button:
 
   ![Deploy HelloWorld Backend](images/3scale_first_api/backend/create-backend-helloworld.png)
 
@@ -17,6 +17,8 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
   System name: hello-world-backend
   Private Base URL: https://echo-api.3scale.net/
   ```
+
+* After configuring your **API Backend**, click on *Create Backend*
 
   ![Deploy HelloWorld Backend](images/3scale_first_api/backend/deploy-backend-helloworld.png)
 
