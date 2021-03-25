@@ -2,7 +2,7 @@
 
 ## Description
 
-This module will cover how deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
+This module will cover how to deploy **3Scale 2.9** on **Red Hat OpenShift 4.6**
 
 ## Deployment
 

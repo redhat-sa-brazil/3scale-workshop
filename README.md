@@ -19,7 +19,7 @@ In order to facilitate the workshop execution, we´ve organized it on the follow
 
 0. [OpenShift Setup](OPENSHIFT_SETUP.md)
 1. [3Scale Setup](3SCALE_SETUP.md)
-2. [3Scale First Steps](3SCALE_FIRST_STEPS.md)
+2. [3Scale First API](3SCALE_FIRST_API.md)
 3. [3Scale Policies](3SCALE_POLICIES.md)
 4. [3Scale Developer Portal](3SCALE_DEV_PORTAL.md)
 5. [3Scale Security](3SCALE_SECURITY.md)
