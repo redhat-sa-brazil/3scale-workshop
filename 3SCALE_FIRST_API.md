@@ -63,7 +63,36 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
   ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-validate-product.png)
 
+### 2. Hello World API - Mapping Rules <a name="deploy-helloworld-mappingrules">
+
+* Switch back to **3Scale Home Page** selecting *Dashboard*
+
+  ![Deploy HelloWorld Mapping Rules](images/3scale_first_api/mappingrule/deploy-helloworld-mappingrules.png)
+
+* Edit **hello-world-backend** configuration: *Backends -> hello world backend*
+
+  ![Deploy HelloWorld Mapping Rules](images/3scale_first_api/mappingrule/select-backend-helloworld.png)
+
+* Click on *Mapping Rules* on the left side menu
+
+  ![Deploy HelloWorld Mapping Rules](images/3scale_first_api/mappingrule/mappingrules-helloworld.png)
+
+* Click on *Add Mapping Rule* and add a Rule with the following parameters, and afterwards click on *Create Mapping Rule*
+
+  ```
+  Verb: GET
+  Pattern: /hello
+  Metric or method to increment: Hits
+  Increment by: 1.
+  Last?: blank
+  Position: 1
+  ```
+
+  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/define-mappingrules-helloworld.png)
+
+
 ## References
 
 - [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
 - [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#product)
+- [3Scale Mapping Rule](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#mapping-rule)
