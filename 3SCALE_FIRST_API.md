@@ -167,6 +167,66 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
     * take note of *Production APIcast URL*
 
+### 6. Hello World API - Test <a name="deploy-helloworld-test">
+
+* In order to test the **Staging APICast**, just execute a curl on the generated URL:
+
+  ```
+  curl "https://hello-world-produc-3scale-apicast-staging.apps.cluster-51e3.51e3.example.opentlc.com:443/?user_key=<yourkey>"
+
+  {
+  "method": "GET",
+  "path": "/",
+  "args": "user_key=3103a2e304a1fa4541c8efc34ab0d93d",
+  "body": "",
+  "headers": {
+    "HTTP_VERSION": "HTTP/1.1",
+    "HTTP_HOST": "echo-api.3scale.net",
+    "HTTP_ACCEPT": "*/*",
+    "HTTP_USER_AGENT": "curl/7.64.1",
+    "HTTP_X_3SCALE_PROXY_SECRET_TOKEN": "Shared_secret_sent_from_proxy_to_API_backend_77ad267d49292f55",
+    "HTTP_X_REAL_IP": "10.128.2.23",
+    "HTTP_X_FORWARDED_FOR": "187.2.139.101, 52.22.150.143, 10.0.101.74",
+    "HTTP_X_FORWARDED_HOST": "echo-api.3scale.net",
+    "HTTP_X_FORWARDED_PORT": "443",
+    "HTTP_X_FORWARDED_PROTO": "https",
+    "HTTP_FORWARDED": "for=10.0.101.74;host=echo-api.3scale.net;proto=https"
+  },
+  "uuid": "3109ab09-4bba-49f6-b034-bc078ed1d923"
+  }%
+  ```
+
+  ![Deploy HelloWorld Test](images/deploy-helloworld-test/staging-helloworld-test.png)
+
+* In order to test the **Production APICast**, just execute a curl on the generated URL:
+
+  ```
+  curl https://hello-world-produc-3scale-apicast-production.apps.cluster-51e3.51e3.example.opentlc.com:443/\?user_key\=$user_key
+  {
+    "method": "GET",
+    "path": "/",
+    "args": "user_key=$key",
+    "body": "",
+    "headers": {
+      "HTTP_VERSION": "HTTP/1.1",
+      "HTTP_HOST": "echo-api.3scale.net",
+      "HTTP_ACCEPT": "*/*",
+      "HTTP_USER_AGENT": "curl/7.64.1",
+      "HTTP_X_3SCALE_PROXY_SECRET_TOKEN": "Shared_secret_sent_from_proxy_to_API_backend_77ad267d49292f55",
+      "HTTP_X_REAL_IP": "10.131.0.17",
+      "HTTP_X_FORWARDED_FOR": "187.2.139.101, 50.16.42.192, 10.0.101.74",
+      "HTTP_X_FORWARDED_HOST": "echo-api.3scale.net",
+      "HTTP_X_FORWARDED_PORT": "443",
+      "HTTP_X_FORWARDED_PROTO": "https",
+      "HTTP_FORWARDED": "for=10.0.101.74;host=echo-api.3scale.net;proto=https"
+    },
+    "uuid": "ca1d231b-5b7b-4f32-b246-a338de792f5c"
+  }
+  ```
+
+  ![Deploy HelloWorld Test](images/deploy-helloworld-test/prod-helloworld-test.png)
+
+
 ## References
 
 - [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
