@@ -119,36 +119,23 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
   * wait until **hello-application-plan State** is: *published*
 
-### 4. Hello World API - Application <a name="deploy-helloworld-application">
+### 4. Hello World API - Promote <a name="deploy-helloworld-promote">
 
-* Switch to **Audience**
+* In the left menu, select: *Integration -> Configuration*
 
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/configure-helloworld-audience.png)
+  ![Deploy HelloWorld Promote](images/3scale_first_api/promote/finish-helloworld-application.png)
 
-* Click on *Developer*
+* Promote the **API** by clicking on *Promote v.1 to Staging APIcast*
 
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/configure-helloworld-developer.png)
+  ![Deploy HelloWorld Promote](images/3scale_first_api/promote/staging-helloworld-application.png)
 
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/view-helloworld-developer.png)
+    * take note of *Staging APIcast URL*
 
-* Click on *1 Application* top link and finally select *Create Application*
+* Promote the **API** by clicking on *Promote v.1 to Production APIcast*
 
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/create-helloworld-application.png)
+  ![Deploy HelloWorld Promote](images/3scale_first_api/promote/production-helloworld-application.png)
 
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/define-helloworld-application.png)
-
-* Define an application with the following configuration and click on *Create Application*
-
-  ```
-  Application Plan: hello-application-plan
-  Name: hello-world-app
-  Description: hello-world-app
-  ```
-
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/finish-helloworld-application.png)
-
-  ![Deploy HelloWorld Application](images/3scale_first_api/application/view-helloworld-application.png)
-
+    * take note of *Production APIcast URL*
 
 ## References
 
