@@ -119,9 +119,41 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
   * wait until **hello-application-plan State** is: *published*
 
+### 4. Hello World API - Application <a name="deploy-helloworld-application">
+
+* Switch to **Audience**
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/configure-helloworld-audience.png)
+
+* Click on *Developer*
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/configure-helloworld-developer.png)
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/view-helloworld-developer.png)
+
+* Click on *1 Application* top link and finally select *Create Application*
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/create-helloworld-application.png)
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/define-helloworld-application.png)
+
+* Define an application with the following configuration and click on *Create Application*
+
+  ```
+  Application Plan: hello-application-plan
+  Name: hello-world-app
+  Description: hello-world-app
+  ```
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/finish-helloworld-application.png)
+
+  ![Deploy HelloWorld Application](images/3scale_first_api/application/view-helloworld-application.png)
+
+
 ## References
 
 - [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
 - [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#product)
 - [3Scale Mapping Rule](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#mapping-rule)
 - [3Scale Application Plan](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#plan)
+- [3Scale Application](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#application)
