@@ -2,7 +2,7 @@
 
 ## Description
 
-This module will cover how prepare **Red Hat OpenShift 4.6** to install **3Scale 2.9**.
+This module will cover how prepare **Red Hat OpenShift 4.6** to install **Red Hat 3Scale 2.9**.
 
 ## Deployment
 
