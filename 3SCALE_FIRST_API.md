@@ -16,7 +16,7 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
 ### 0. Hello World API - Backend <a name="deploy-helloworld-backend">
 
-* On your **3Scale Home Page** create a *Backend* with the following configuration by clicking on *New Backend* button:
+* On your **3Scale Home Page** create a *Backend* with the following configuration by clicking on *NEW BACKEND* button:
 
   ![Deploy HelloWorld Backend](images/3scale_first_api/backend/create-backend-helloworld.png)
 
@@ -36,9 +36,11 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
 ### 1. Hello World API - Product <a name="deploy-helloworld-product">
 
-* On your **3Scale Home Page** create a *Product* with the following configuration, and click on *Create Product* afterwards:
+* On your **3Scale Home Page** create a *Product* by clicking on *NEW PRODUCT* button:
 
   ![Deploy HelloWorld Product](images/deploy-helloworld-product/create-product-helloworld.png)
+
+* Create a *Product* with the following definition:
 
   ```
   Name: hello-world-product
