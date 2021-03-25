@@ -59,7 +59,7 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
   ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-product.png)
 
-* Confirm if **hello-world-backend** is sucessfully created
+* Confirm that **hello-world-backend** is successfully created
 
   ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-validate-product.png)
 
