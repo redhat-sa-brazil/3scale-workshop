@@ -88,7 +88,7 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
   Position: 1
   ```
 
-  ![Deploy HelloWorld Mapping Rules](images/deploy-helloworld-mappingrules/define-mappingrules-helloworld.png)
+  ![Deploy HelloWorld Mapping Rules](images/3scale_first_api/mappingrule/define-mappingrules-helloworld.png)
 
 
 ## References
