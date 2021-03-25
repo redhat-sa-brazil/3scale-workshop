@@ -55,12 +55,13 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
 * Select **hello-world-backend** from *Backend* menu and on the *Path* textbox, inform `/`
 
-  ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-product.png)
-
 * Finally click on *Add to Product*
 
-  ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-validate-product.png)
+  ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-product.png)
 
+* Confirm if **hello-world-backend** is sucessfully created
+
+  ![Deploy HelloWorld Product](images/3scale_first_api/product/addbackend-validate-product.png)
 
 ## References
 
