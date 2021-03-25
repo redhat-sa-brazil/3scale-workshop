@@ -90,9 +90,38 @@ This module will cover how to create an **API Product, API Backend, Mapping Rule
 
   ![Deploy HelloWorld Mapping Rules](images/3scale_first_api/mappingrule/define-mappingrules-helloworld.png)
 
+### 3. Hello World API - Application Plans <a name="deploy-helloworld-applicationplans">
+
+* Switch back to **3Scale Home Page** selecting *Dashboard*
+
+  ![Deploy HelloWorld Application Plan](images/3scale_first_api/applicationplan/dashboard-helloworld-applicationplan.png)
+
+* Switch to *Products* tab and click on *HELLO-WORLD-PRODUCT API*
+
+  ![Deploy HelloWorld Application Plan](images/3scale_first_api/applicationplan/product-helloworld-applicationplan.png)
+
+* Click on: *Overview -> Applications -> Application Plan*
+
+  ![Deploy HelloWorld Application Plan](images/3scale_first_api/applicationplan/integration-helloworld-applicationplan.png)
+
+* Click on *Create Application Plan* and define it using the following parameters:
+
+  ```
+  Name: hello-application-plan
+  System name: hello-application-plan
+  ```
+
+  ![Deploy HelloWorld Application Plan](images/3scale_first_api/applicationplan/create-helloworld-applicationplan.png)
+
+* Finally set **hello-application-plan** as the *Default Plan* and click on *Publish*
+
+  ![Deploy HelloWorld Application Plan](images/3scale_first_api/applicationplan/publish-helloworld-applicationplan.png)
+
+  * wait until **hello-application-plan State** is: *published*
 
 ## References
 
 - [3Scale Backend](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#backend)
 - [3Scale Product](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#product)
 - [3Scale Mapping Rule](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#mapping-rule)
+- [3Scale Application Plan](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html/glossary/threescale_glossary#plan)
