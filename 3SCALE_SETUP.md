@@ -17,7 +17,7 @@ This module will cover how to deploy **Red Hat 3Scale 2.9** on **Red Hat OpenShi
     System can be scaled horizontally with multiple pods uploading and reading said static files, hence the need for a RWX PersistentVolume when APIManager is configured to use PVC as System's FileStorage
   ```
 
-    * When using *RHPDS* you need to deploy an additional *Storage Backend (NFS, OCS, etc)* or create a *PersistentVolumeClaim* in order to sucessfully deploy **3Scale**.
+    * When using *RHPDS* you need to deploy an additional *Storage Backend ([NFS](https://github.com/luszczynski/kubernetes-nfs), OCS, etc)* or create a *PersistentVolumeClaim* in order to sucessfully deploy **3Scale**.
 
       ```
       apiVersion: v1
